@@ -58,13 +58,15 @@ namespace MyScapperProgects
                     {
                         textbox1.Text += item2.InnerHtml.Trim()+"\n";
                         string str = item2.Attributes[0].Value;
+                        MyFilm.FilmName.Add(item2.InnerHtml.Trim(), item2.Attributes[0].Value);
                         break;
                     }
                     if (doc2.DocumentNode.SelectNodes(@"//img[@title]") != null)
                     {
                         foreach (var item2 in doc2.DocumentNode.SelectNodes(@"//img[@title]"))
                         {
-                            string str = item2.Attributes[0].Value;
+                            //string str = item2.Attributes[0].Value;
+                            MyFilm.Certification = item2.Attributes[0].Value;
                             break;
                         }
                     }
@@ -72,18 +74,18 @@ namespace MyScapperProgects
                     {
                         foreach (var item2 in doc1.DocumentNode.SelectNodes(@"//time[@itemprop]"))
                         {
-                            string str = item2.InnerHtml;
+                            //string str = item2.InnerHtml;
+                            MyFilm.FilmMinutes =item2.InnerHtml;
                             break;
                         }
                     }
-                    //to do
-                    //genere is a list...
+           
                     if (doc1.DocumentNode.SelectNodes(@"//span[@itemprop=""genre""]") != null) 
                     {
                         foreach (var item2 in doc1.DocumentNode.SelectNodes(@"//span[@itemprop=""genre""]"))
                         {
-                            string str = item2.InnerHtml;
-                            
+                            //string str = item2.InnerHtml;
+                            MyFilm.Genre.Add(item2.InnerHtml);
                         }
                     }
 
@@ -94,8 +96,8 @@ namespace MyScapperProgects
                             //inner text b in khater k age inner html bashe va name shakhsi ham bashe 
                             //b sorate yek tage a html zaher mishe 
                             //ama ba innertext mesle safhe yaye html browser b sorate text miyad na html
-                            string str = item2.InnerText.Trim();
-
+                            //string str = item2.InnerText.Trim();
+                            MyFilm.Description = item2.InnerText.Trim();
                         }
                     }
                     if (doc1.DocumentNode.SelectNodes(@"//span[@itemprop=""director""]") != null)    
@@ -109,8 +111,9 @@ namespace MyScapperProgects
                             //momkene chanta kargardan bashe... bayad b sorate list piyade sazi shavad...
                             foreach (var item3 in doc3.DocumentNode.SelectNodes(@"//a[@href]"))
                             {
-                                string str = item3.InnerHtml.Trim();
-                                string str1 = item3.Attributes[0].Value;
+                                //string str = item3.InnerHtml.Trim();
+                                //string str1 = item3.Attributes[0].Value;
+                                MyFilm.FilmDirector.Add(item3.InnerHtml.Trim(), item3.Attributes[0].Value);
                             }
 
                         }
@@ -124,8 +127,8 @@ namespace MyScapperProgects
                            
                             foreach (var item3 in doc3.DocumentNode.SelectNodes(@"//a[@href]"))
                             {
-                                string str = item3.InnerHtml.Trim();
-                                string str1 = item3.Attributes[0].Value;
+                                //string str = item3.InnerHtml.Trim();
+                                //string str1 = item3.Attributes[0].Value;
                                 MyFilm.FilmStars.Add(item3.InnerHtml.Trim(), item3.Attributes[0].Value);
                     
                             }
@@ -135,9 +138,11 @@ namespace MyScapperProgects
 
 
                 }
-                MessageBox.Show("hi");
+                MyFilmList.Add(MyFilm);
+                MyFilm = new FilmRelease();
           
             }
+            MessageBox.Show("ads");
           
 
             

@@ -9,8 +9,10 @@ namespace MyScapperProgects
     class FilmRelease
     {
         public Dictionary<string,string> FilmName { get; set; }
-        public int FilmMinutes { get; set; }
+        public string Certification { get; set; }
+        public string FilmMinutes { get; set; }
         public List<string> Genre { get; set; }
+        public string Description { get; set; }
         public Dictionary<string,string> FilmDirector { get; set; }
         public Dictionary<string, string> FilmStars { get; set; }
         public int FilmYear { get; set; }
