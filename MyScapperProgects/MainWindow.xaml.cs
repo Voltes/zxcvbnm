@@ -37,15 +37,10 @@ namespace MyScapperProgects
             HtmlAgilityPack.HtmlWeb htmlweb = new HtmlWeb();
             HtmlAgilityPack.HtmlDocument Doc = new HtmlDocument();
 
+            FilmRelease MyFilm = new FilmRelease();
             List<FilmRelease> MyFilmList = new List<FilmRelease>();
-
-            FilmRelease MyFilm=new FilmRelease();
-            Dictionary<string ,string> test=new Dictionary<string,string>();
-            test.Add("asaw","sdfsdf");
-
-            MyFilm.FilmStars.Add("asdasd","asdas");
-           // MyFilm.FilmStars=test;
-
+            
+                       
             Doc = htmlweb.Load("http://www.imdb.com/movies-in-theaters/");
             //Doc = htmlweb.Load("http://www.imdb.com/movies-coming-soon/");
             textbox1.Clear();
@@ -131,14 +126,16 @@ namespace MyScapperProgects
                             {
                                 string str = item3.InnerHtml.Trim();
                                 string str1 = item3.Attributes[0].Value;
-                               // MyFilm.FilmStars()
-                                //MyFilm.FilmStars.Add(item3.InnerHtml.Trim(), item3.Attributes[0].Value);
+                                MyFilm.FilmStars.Add(item3.InnerHtml.Trim(), item3.Attributes[0].Value);
+                    
                             }
                           
                         }
                     }
 
+
                 }
+                MessageBox.Show("hi");
           
             }
           
