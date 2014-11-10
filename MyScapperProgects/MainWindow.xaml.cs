@@ -142,7 +142,7 @@ namespace MyScapperProgects
                 MyFilm = new FilmRelease();
           
             }
-            MessageBox.Show("ads");
+            MessageBox.Show("here WE go");
           
 
             
