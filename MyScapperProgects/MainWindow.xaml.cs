@@ -37,5 +37,11 @@ namespace MyScapperProgects
             ListInTheaterCommingSoon.Scrap();
 
         }
+
+        private void BtnGetFilms_Click(object sender, RoutedEventArgs e)
+        {
+            GetFilms getFilms = new GetFilms();
+            getFilms.Scrap();
+        }
     }
 }

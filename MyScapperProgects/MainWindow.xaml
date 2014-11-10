@@ -5,6 +5,7 @@
     <Grid>
         <Button Content="Button" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="114" Height="67" Click="Button_Click"/>
         <TextBox x:Name="textbox1" HorizontalAlignment="Left" Height="195" Margin="248,77,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="494"/>
+        <Button x:Name="BtnGetFilms" Content="GetFilms" HorizontalAlignment="Left" Margin="608,25,0,0" VerticalAlignment="Top" Width="148" Height="38" Click="BtnGetFilms_Click"/>
 
     </Grid>
 </Window>
