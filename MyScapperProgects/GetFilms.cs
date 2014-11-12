@@ -19,13 +19,21 @@ namespace MyScapperProgects
         {
             List<string> str = new List<string>();
             //string str=web.DownloadString("http://www.imdb.com/search/title?at=0&languages=fa%7C1&sort=num_votes&title_type=feature");
-            docm = htmlwebm.Load("http://www.imdb.com/search/title?at=0&languages=fa%7C1&sort=num_votes&title_type=feature");
+            //&start=51
+            docm = htmlwebm.Load
+                ("http://www.imdb.com/search/title?at=0&languages=fa%7C1&sort=num_votes&title_type=feature");
             //div/following-sibling::p[preceding::div]     @"//span[@class=""wlb_wrapper""]//following::span[@class=""wlb_wrapper""]")
-            
-                foreach (var itemm in docm.DocumentNode.SelectNodes(@"//a[@href]"))
+
+            foreach (var itemm in docm.DocumentNode.SelectNodes(@"//span[@class=""wlb_wrapper""]"))
             {
-                str.Add(itemm.InnerHtml.ToString());
+         
+                str.Add("http://www.imdb.com/title/"+itemm.Attributes[1].Value);
             }
+            //foreach (var itemm in docm.DocumentNode.SelectNodes(@"//span[@class=""wlb_wrapper""]"))
+            //{
+            //    str.Add(itemm.OuterHtml.ToString());
+            //}
+            int x;
         }
     }
 }
